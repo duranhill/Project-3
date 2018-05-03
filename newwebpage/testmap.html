@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var CO = {lat: 39.550051, lng: -105.782067};
+        var CA = {lat: 36.778261, lng: -119.417932};
+        var TX = {lat: 31.968599, lng: -99.901813};
+        var locations =[CO,CA,TX]
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4.33,
+          center: CO
+        });
+        for (var i = locations.length - 1; i >= 0; i--) {
+          console.log()
+          var marker = new google.maps.Marker({
+            position: locations[i],
+            map: map
+          });
+        }
+        
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjJWGuySOTYVS8p2j10Nm3JCP0e5eFoW0&callback=initMap">
+    </script>
+  </body>
+</html>
